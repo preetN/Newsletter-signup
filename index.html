@@ -23,7 +23,7 @@
 
     <style>
       .wrapper {
-        min-height: 80vh;
+        height: 100vh;
       }
       .attribution {
         font-size: 11px;
@@ -35,11 +35,9 @@
     </style>
   </head>
   <body class="bg-dark">
-    <div
-      class="wrapper d-flex align-items-center justify-content-center bg-light"
-    >
-      <div class="d-flex">
-        <div class="form_side">
+    <div class="wrapper d-flex justify-content-center align-items-center">
+      <div class="d-flex w-75 h-75 bg-light rounded-4 p-4 m-3">
+        <div class="w-50 p-2">
           <h1>Stay updated!</h1>
           <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
@@ -56,13 +54,14 @@
               id="email_field"
               placeholder="email@company.com "
             />
-            <button class="btn btn-dark">
+            <button class="btn btn-dark mt-3 w-100">
               Subscribe to monthly newsletter
             </button>
           </form>
         </div>
-        <div class="flex-shrink-0">
+        <div class="w-50 p-2">
           <svg
+            class="w-100 h-100"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             width="400"
@@ -324,26 +323,28 @@
         </div>
       </div>
     </div>
-    <div class="sucess_msg">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="21"
-        height="21"
-        viewBox="0 0 21 21"
-      >
-        <g fill="none">
-          <circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155" />
-          <path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8" />
-        </g>
-      </svg>
-      <h1>Thanks for subscribing!</h1>
-      <p>
-        A confirmation email has been sent to <b>ash@loremcompany.com</b>.
-        Please open it and click the button inside to confirm your subscription.
-      </p>
-      <button class="btn btn-dark">Dismiss message</button>
+    <div class="d-flex justify-content-center">
+      <div class="bg-light w-50 p-4 rounded-4 m-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 21 21"
+        >
+          <g fill="none">
+            <circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155" />
+            <path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8" />
+          </g>
+        </svg>
+        <h1>Thanks for subscribing!</h1>
+        <p>
+          A confirmation email has been sent to <b>ash@loremcompany.com</b>.
+          Please open it and click the button inside to confirm your
+          subscription.
+        </p>
+        <button class="btn btn-dark w-100">Dismiss message</button>
+      </div>
     </div>
-
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
