@@ -30,7 +30,40 @@
       body {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 14px;
+        background-color: hsl(234, 29%, 20%);
+        color: hsl(234, 29%, 20%);
+      }
+      .succes_msg {
+        display: none;
+        height: auto;
+        width: 340px;
+      }
+      #success > div {
+        border-radius: 20px;
+      }
+      .succes_msg.show {
+        display: block;
+      }
+
+      .mobile_img {
+        display: none;
+      }
+      .btn {
+        background-color: hsl(234, 29%, 20%);
+      }
+      button:hover {
+        background: linear-gradient(
+          to right,
+          rgb(223, 91, 113),
+          rgb(255, 77, 0)
+        );
+        border-color: rgb(255, 77, 0) !important;
+        box-shadow: 5px 5px 30px rgb(255, 77, 0);
+      }
+      #email_field:hover {
+        border: 1px solid hsl(234, 29%, 20%);
+        box-shadow: none;
       }
       li {
         padding-left: 8px;
@@ -39,7 +72,9 @@
       .wrapper {
         height: 100vh;
       }
-
+      label {
+        font-size: 12px;
+      }
       .attribution {
         font-size: 11px;
         text-align: center;
@@ -47,63 +82,120 @@
       .attribution a {
         color: hsl(228, 45%, 44%);
       }
+      @media (max-width: 375px) {
+        .wrapper {
+          width: 100%;
+          height: auto;
+        }
+        .main-sec {
+          width: 100%;
+          flex-direction: column-reverse;
+          border-radius: 0 !important;
+        }
+        .mobile_img {
+          display: block;
+        }
+        .desktop_img {
+          display: none;
+        }
+        .p-2 {
+          padding: 0 !important;
+        }
+        .succes_msg {
+          height: 100vh;
+          width: auto;
+        }
+        #success > div {
+          border-radius: 0px;
+        }
+      }
     </style>
   </head>
-  <body class="bg-dark">
+  <body>
     <div class="wrapper d-flex justify-content-center align-items-center">
-      <div class="d-flex h-auto bg-light rounded-4 p-2 w-50">
-        <div class="p-3 mt-3">
-          <h1 style="font-weight: 700">Stay updated!</h1>
-          <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      <div id="m">
+        <div
+          class="main-sec d-flex h-auto bg-light rounded-4 p-2 align-items-center"
+        >
+          <div class="p-4">
+            <h1 style="font-weight: 700">Stay updated!</h1>
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-          <ul style="list-style-image: url(./assets/images/icon-list.svg)">
-            <li>Product discovery and building what matters</li>
-            <li>Measuring to ensure updates are a success</li>
-            <li>And much more!</li>
-          </ul>
-          <form id="sign_upForm">
-            <label for="email_field" class="form-label">Email address</label>
-            <input
-              class="form-control"
-              type="email"
-              id="email_field"
-              name="email"
-              style="font-size: 16px"
-              placeholder="email@company.com "
+            <ul style="list-style-image: url(./assets/images/icon-list.svg)">
+              <li>Product discovery and building what matters</li>
+              <li>Measuring to ensure updates are a success</li>
+              <li>And much more!</li>
+            </ul>
+            <form id="sign_upForm">
+              <div class="d-flex justify-content-between">
+                <label for="email_field" class="form-label"
+                  >Email address</label
+                >
+                <label
+                  for="email_field"
+                  id="error_email"
+                  class="form-label text-danger"
+                ></label>
+              </div>
+
+              <input
+                class="form-control"
+                type="text"
+                id="email_field"
+                name="email"
+                style="font-size: 14px"
+                placeholder="email@company.com "
+              />
+              <button
+                type="submit"
+                class="btn btn-dark mt-3 w-100"
+                id="sub_btn"
+                style="font-size: 14px"
+              >
+                Subscribe to monthly newsletter
+              </button>
+            </form>
+          </div>
+          <div class="d-flex align-items-center justify-content-end">
+            <img
+              src="./assets/images/illustration-sign-up-desktop.svg"
+              width="100%"
+              class="desktop_img"
             />
-            <button
-              class="btn btn-dark mt-3 w-100"
-              id="sub_btn"
-              style="font-size: 16px"
-            >
-              Subscribe to monthly newsletter
-            </button>
-          </form>
+            <img
+              src="./assets/images/illustration-sign-up-mobile.svg"
+              width="100%"
+              class="mobile_img"
+            />
+          </div>
         </div>
-        <div class="w-50 d-flex align-items-center justify-content-end">
-          <img
-            src="./assets/images/illustration-sign-up-desktop.svg"
-            width="100%"
-          />
+      </div>
+      <div id="success" class="succes_msg">
+        <div class="d-flex justify-content-center h-100 bg-light">
+          <div class="p-4 d-flex flex-column justify-content-between">
+            <div class="mt-5">
+              <img
+                src="./assets/images/icon-success.svg"
+                width="45px"
+                height="auto"
+                class="mb-3"
+              />
+
+              <h2 style="font-weight: 700">Thanks for subscribing!</h2>
+              <p>
+                A confirmation email has been sent to
+                <b><span id="display_email">email@company.com</span></b
+                >. Please open it and click the button inside to confirm your
+                subscription.
+              </p>
+            </div>
+
+            <button class="btn btn-dark mt-2 w-100">Dismiss message</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <div class="bg-light w-50 p-4 rounded-4 m-3">
-        <img
-          src="./assets/images/icon-success.svg"
-          width="30px"
-          height="auto"
-        />
-        <h1>Thanks for subscribing!</h1>
-        <p>
-          A confirmation email has been sent to <b>ash@loremcompany.com</b>.
-          Please open it and click the button inside to confirm your
-          subscription.
-        </p>
-        <button class="btn btn-dark w-100">Dismiss message</button>
-      </div>
-    </div>
+
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
