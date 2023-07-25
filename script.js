@@ -13,6 +13,9 @@ document.getElementById("sign_upForm").addEventListener("submit", function (e) {
     errorMsg();
   }
 });
+const opennew = () => {
+  window.open("./index.html", "_self");
+};
 const resetErrorMsg = () => {
   document.getElementById("error_email").innerHTML = "";
   emailElm.style.color = "black";
