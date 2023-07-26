@@ -13,6 +13,7 @@ document.getElementById("sign_upForm").addEventListener("submit", function (e) {
     errorMsg();
   }
 });
+//Will open new index.htmlon same page
 const opennew = () => {
   window.open("./index.html", "_self");
 };
